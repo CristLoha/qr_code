@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "743876039648",
+    "project_id": "qrcode-b9680",
+    "storage_bucket": "qrcode-b9680.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743876039648:android:22195437fef36269371185",
+        "android_client_info": {
+          "package_name": "com.christloha.qr_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743876039648-uib2uiqiv8jb35nfoaf3h5asvc7806l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG-Hk14z_lhIlINUzXeulPFcHcULfUbbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743876039648-uib2uiqiv8jb35nfoaf3h5asvc7806l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
