@@ -13,7 +13,7 @@ class HomeScreen extends GetView<HomeController> {
         title: const Text('HomeScreen'),
         centerTitle: true,
       ),
-      body: HomeMenu(),
+      body: const HomeMenu(),
       floatingActionButton: HomeLogout(),
     );
   }
