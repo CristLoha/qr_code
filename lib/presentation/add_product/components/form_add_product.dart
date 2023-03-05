@@ -53,6 +53,7 @@ class FormAddProduct extends StatelessWidget {
                     "qty": int.tryParse(controller.qtyC.text) ?? 0,
                   });
                   controller.isLoading(false);
+                  Get.back();
                   Get.snackbar(hasil["error"] == true ? "Error" : "Success",
                       hasil["message"]);
                 } else {
