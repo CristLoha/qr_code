@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:qr_code/domain/models/product.dart';
 import 'package:qr_code/infrastructure/navigation/routes.dart';
 import 'package:qr_code/utils/extension/box_extension.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -21,14 +22,24 @@ class ProductsScreen extends GetView<ProductsController> {
           stream: controller.streamProducts(),
           builder: (context, snapProduct) {
             if (snapProduct.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
+            if (snapProduct.data!.docs.isEmpty) {
+              return const Center(
+                child: Text('No Products'),
+              );
+            }
+            List<ProductModel> allProducts = [];
+            for (var element in snapProduct.data!.docs) {
+              allProducts.add(ProductModel.fromJson(element.data()));
+            }
             return ListView.builder(
-              itemCount: 5,
+              itemCount: allProducts.length,
               padding: const EdgeInsets.all(20),
               itemBuilder: (context, index) {
+                ProductModel product = allProducts[index];
                 return Card(
                   elevation: 5,
                   margin: const EdgeInsets.only(bottom: 20),
@@ -48,15 +59,15 @@ class ProductsScreen extends GetView<ProductsController> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  '539284724',
-                                  style: TextStyle(
+                                Text(
+                                  product.code,
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 5.heightBox,
-                                Text('Beng-Beng'),
-                                Text('Jumlah: 7')
+                                Text(product.name),
+                                Text('Jumlah: ${product.qty}')
                               ],
                             ),
                           ),
