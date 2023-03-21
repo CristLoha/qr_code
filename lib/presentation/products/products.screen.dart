@@ -48,7 +48,7 @@ class ProductsScreen extends GetView<ProductsController> {
                   ),
                   child: InkWell(
                     onTap: () {
-                      Get.toNamed(Routes.detailProduct);
+                      Get.toNamed(Routes.detailProduct, arguments: product);
                     },
                     child: Container(
                       padding: const EdgeInsets.all(20),
